@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#111827">
+
+    <title>🧩 Puzzle Master 3D</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- =========================
+         BOSH MENU
+    ========================== -->
+    <section id="home" class="screen active">
+
+        <div class="logo-box">
+            <div class="puzzle-logo">🧩</div>
+        </div>
+
+        <h1>PUZZLE MASTER</h1>
+
+        <p class="subtitle">
+            🧠 Miyangni sinab ko‘r!
+        </p>
+
+        <div class="home-card">
+
+            <button id="playBtn" class="main-btn">
+                🎮 O‘YINNI BOSHLASH
+            </button>
+
+            <button id="levelsBtn" class="secondary-btn">
+                🏆 DARAJALAR
+            </button>
+
+        </div>
+
+        <div class="version">
+            4 yosh → 8-sinf
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         YOSH / SINF TANLASH
+    ========================== -->
+    <section id="ageScreen" class="screen">
+
+        <button class="back-btn" id="ageBackBtn">
+            ← Orqaga
+        </button>
+
+        <h2>🎓 O‘zingizni tanlang</h2>
+
+        <p class="description">
+            Yosh yoki sinfingizni tanlang
+        </p>
+
+        <div class="age-grid">
+
+            <button class="age-card"
+                    data-type="age"
+                    data-value="4">
+                <span>👶</span>
+                <strong>4 yosh</strong>
+                <small>Juda oson</small>
+            </button>
+
+            <button class="age-card"
+                    data-type="age"
+                    data-value="5">
+                <span>🧒</span>
+                <strong>5 yosh</strong>
+                <small>Oson</small>
+            </button>
+
+            <button class="age-card"
+                    data-type="age"
+                    data-value="6">
+                <span>🧒</span>
+                <strong>6 yosh</strong>
+                <small>Oson+</small>
+            </button>
+
+            <button class="age-card"
+                    data-type="age"
+                    data-value="7">
+                <span>🎒</span>
+                <strong>7 yosh</strong>
+                <small>O‘rta</small>
+            </button>
+
+
+            <button class="age-card"
+                    data-type="grade"
+                    data-value="1">
+                <span>📗</span>
+                <strong>1-sinf</strong>
+                <small>Boshlang‘ich</small>
+            </button>
+
+            <button class="age-card"
+                    data-type="grade"
+                    data-value="2">
+                <span>📘</span>
+                <strong>2-sinf</strong>
+                <small>Boshlang‘ich+</small>
+            </button>
+
+            <button class="age-card"
+                    data-type="grade"
+                    data-value="3">
+                <span>📙</span>
+                <strong>3-sinf</strong>
+                <small>O‘rta</small>
+            </button>
+
+            <button class="age-card"
+                    data-type="grade"
+                    data-value="4">
+                <span>📕</span>
+                <strong>4-sinf</strong>
+                <small>O‘rta+</small>
+            </button>
+
+            <button class="age-card"
+                    data-type="grade"
+                    data-value="5">
+                <span>🎓</span>
+                <strong>5-sinf</strong>
+                <small>Qiyin</small>
+            </button>
+
+            <button class="age-card"
+                    data-type="grade"
+                    data-value="6">
+                <span>🎓</span>
+                <strong>6-sinf</strong>
+                <small>Qiyin+</small>
+            </button>
+
+            <button class="age-card"
+                    data-type="grade"
+                    data-value="7">
+                <span>🧠</span>
+                <strong>7-sinf</strong>
+                <small>PRO</small>
+            </button>
+
+            <button class="age-card"
+                    data-type="grade"
+                    data-value="8">
+                <span>👑</span>
+                <strong>8-sinf</strong>
+                <small>MASTER</small>
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         O‘YIN EKRANI
+    ========================== -->
+    <section id="gameScreen" class="screen">
+
+        <div class="game-header">
+
+            <button class="back-btn" id="gameBackBtn">
+                ←
+            </button>
+
+            <div class="stat">
+                ⭐ <span id="score">0</span>
+            </div>
+
+            <div class="stat">
+                ⏱️ <span id="time">60</span>
+            </div>
+
+        </div>
+
+
+        <div class="level-info">
+
+            <span id="playerLevel">
+                4 yosh
+            </span>
+
+            <span id="difficulty">
+                Juda oson
+            </span>
+
+        </div>
+
+
+        <h2 id="gameTitle">
+            🧩 1-bosqich
+        </h2>
+
+        <p id="gameMessage">
+            Bo‘laklarni joyiga qo‘ying!
+        </p>
+
+
+        <!-- PUZZLE -->
+        <div id="puzzle"></div>
+
+
+        <!-- RASM TANLASH -->
+        <div class="image-tools">
+
+            <label for="imageInput" class="image-btn">
+                📷 Rasm tanlash
+            </label>
+
+            <input
+                type="file"
+                id="imageInput"
+                accept="image/*"
+                hidden
+            >
+
+        </div>
+
+
+        <!-- O‘YIN BOSHQARUVI -->
+        <div class="game-controls">
+
+            <div class="lives">
+                ❤️ <span id="lives">3</span>
+            </div>
+
+            <button id="shuffleBtn">
+                🔀 Aralashtirish
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         DARAJALAR
+    ========================== -->
+    <section id="levelsScreen" class="screen">
+
+        <button class="back-btn" id="levelsBackBtn">
+            ← Orqaga
+        </button>
+
+        <h2>
+            🏆 DARAJALAR
+        </h2>
+
+        <div id="levelsList"></div>
+
+    </section>
+
+
+    <!-- =========================
+         YUTISH EKRANI
+    ========================== -->
+    <section id="winScreen" class="screen">
+
+        <div class="big-icon">
+            🏆
+        </div>
+
+        <h1>
+            AJOYIB!
+        </h1>
+
+        <p>
+            Siz puzzle'ni yechdingiz! 🎉
+        </p>
+
+        <div class="result-card">
+
+            <div>
+                ⭐ Ball
+            </div>
+
+            <strong id="finalScore">
+                0
+            </strong>
+
+        </div>
+
+
+        <button id="nextBtn" class="main-btn">
+            ➡️ KEYINGI
+        </button>
+
+        <button id="winMenuBtn" class="secondary-btn">
+            🏠 MENU
+        </button>
+
+    </section>
+
+
+    <!-- =========================
+         YUTQAZISH EKRANI
+    ========================== -->
+    <section id="loseScreen" class="screen">
+
+        <div class="big-icon">
+            ⏰
+        </div>
+
+        <h1>
+            VAQT TUGADI
+        </h1>
+
+        <p>
+            Yana bir bor urinib ko‘ring! 💪
+        </p>
+
+
+        <button id="retryBtn" class="main-btn">
+            🔄 QAYTA URINISH
+        </button>
+
+        <button id="loseMenuBtn" class="secondary-btn">
+            🏠 MENU
+        </button>
+
+    </section>
+
+</div>
+
+
+<!-- =========================
+     JAVASCRIPT
+========================== -->
+
+<script src="script.js"></script>
+
+</body>
+</html>
